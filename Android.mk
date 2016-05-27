@@ -17,6 +17,11 @@ LOCAL_PACKAGE_NAME := Browser
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
+ifeq ($(TARGET_DEVICE),generic_arm64)
+LOCAL_MODULE_PATH := $(TARGET_OUT_DATA)
+LOCAL_MULTILIB := both
+endif
+
 LOCAL_EMMA_COVERAGE_FILTER := *,-com.android.common.*
 
 # We need the sound recorder for the Media Capture API.
